@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f0f0;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #0d70f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    color: #fff;
+}
+
+/* Chat Container */
+#chat-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0 15px;
+    background-color: #e6f0ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* Messages Section */
+#messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#messages p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* Sent Messages */
+#messages p.sent {
+    background-color: #cce5ff;
+    margin-left: auto;
+    margin-right: 10px;
+    border-radius: 8px 8px 0 8px;
+}
+
+/* Received Messages */
+#messages p.received {
+    background-color: #e9ecef;
+    margin-right: auto;
+    margin-left: 10px;
+    border-radius: 8px 8px 8px 0;
+}
+
+/* Message Input Box */
+#message-box {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+}
+
+#message-box input#message {
+    width: calc(100% - 100px);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#message-box button#sendBtn {
+    padding: 15px 30px;
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#message-box button#sendBtn:hover {
+    background-color: #003580;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}

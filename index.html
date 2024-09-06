@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Chatting</h1>
+    </div>
+
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div id="message-box">
+            <input type="text" id="message" placeholder="Enter Message" />
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+    <script>
+        const socket = io();
+        const sendBtn = document.getElementById('sendBtn');
+        const messageInput = document.getElementById('message');
+        const allMessages = document.getElementById('messages');
+
+        // Receive messages from the server and display them
+        socket.on("message", (message) => {
+            const p = document.createElement("p");
+            p.innerText = message;
+            p.classList.add('received');
+            allMessages.appendChild(p);
+            allMessages.scrollTop = allMessages.scrollHeight;
+        });
+
+        // Send a message when the button is clicked
+        sendBtn.addEventListener("click", () => {
+            const message = messageInput.value;
+            if (message.trim() !== "") {
+                const p = document.createElement("p");
+                p.innerText = message;
+                p.classList.add('sent');
+                allMessages.appendChild(p);
+                socket.emit("user-message", message);
+                messageInput.value = '';
+                allMessages.scrollTop = allMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
